@@ -3,7 +3,7 @@ var express = require('express'),
     request = require('request'),
     bodyParser = require('body-parser'),
     app = express();
-var dbOperations = require("./js/dbOperations");
+//var dbOperations = require("./js/dbOperations");
 var logFmt = require("logfmt");
 //app.set('views', __dirname + '/views') ;
 app.use(express.static('./'));

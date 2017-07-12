@@ -1,0 +1,61 @@
+<div class="center"  >
+    <h1 style="margin-left: 85px;"><label>C3 User Role Manager</label></h1>
+    <hr><br>
+  
+    <div class="tab">
+        <button class="tablinks" ng-click="tabOpen('SetRole')" ng-class="{active:currentTab==='SetRole'}" >Set Role</button>
+        <button class="tablinks" ng-click="tabOpen('GetRole')" ng-class="{active:currentTab==='GetRole'}">Get Role</button>
+    </div>
+
+    <div id="SetRole"  class="tabcontent"  ng-show="currentTab==='SetRole'">
+        <form name="myForm1">
+            <br>
+        <input type="number" ng-model="employeeIdForSet"  placeholder="Enter employee ID " required><br>
+            <input type="number" ng-model="roleNo" placeholder="Enter role you want " required><br><br>
+           
+            
+            <input type="radio" ng-model="myVar1" value="int" ng-required="!myVar1">INT
+            <input type="radio" ng-model="myVar1" value="reg" ng-required="!myVar1">REG
+            <input type="radio" ng-model="myVar1" value="plab" ng-required="!myVar1">PLAB
+            <input type="radio" ng-model="myVar1" value="beta" ng-required="!myVar1">BETA
+            <br><br>
+
+            <button ng-click="setRole()" class="btn"  ng-disabled="myForm1.$invalid">Set Role</button>
+            <button ng-click="clearSet()" class="btn">Clear</button>
+            <br><br>
+            <div class="grid" ng-show="successFlag===true">{{setData}}</div>
+            <div class="gridRed" ng-show="successFlag===false">{{setData}}</div>
+            
+        </form>
+<!--        <p>form = {{user}}</p>
+        <p>master = {{master}}</p>-->
+
+    </div>
+
+    <div id="GetRole"  class="tabcontent"  ng-show="currentTab==='GetRole'">
+        <form name="myForm2">
+            <br>
+            <input type="number" ng-model="employeeIdForGet" placeholder="Enter employee ID " required>
+            <!--<span ng-show="myForm2.employeeId.$touched && myForm2.employeeId.$invalid">The name is required.</span>-->
+            <br><br>
+
+            <input type="radio" ng-model="myVar2" value="int" ng-required="!myVar2">INT
+            <input type="radio" ng-model="myVar2" value="reg" ng-required="!myVar2">REG
+            <input type="radio" ng-model="myVar2" value="plab" ng-required="!myVar2">PLAB
+            <input type="radio" ng-model="myVar2" value="beta" ng-required="!myVar2">BETA
+            <br><br>
+
+            <button ng-click="getRole()" class="btn" ng-disabled="myForm2.$invalid">Get Role</button>
+            <button ng-click="clearGet()" class="btn">Clear</button>
+            <br><br>
+       
+<!--            <div id="resultLabel" ng-model="resultLabel">Over Here:{{dataset}}</div>-->
+            <div id="grid2" ui-grid="gridOptions"  class="grid" ng-show="getData">{{getData}}</div>
+            <div ng-hide="getData"></div>
+        </form>
+        
+
+    </div>
+</div>
+
+
